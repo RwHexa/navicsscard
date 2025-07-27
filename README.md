@@ -11,4 +11,6 @@ die Anwendersite mit "Card"
 Basis für weitere Anwendungen.
 
                        Juli 2025 von Rw
+
+Delphi-IDE Projekte: "Ftvcss"                         
                        
