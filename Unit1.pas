@@ -8,19 +8,15 @@ uses
   Vcl.Imaging.pngimage, Vcl.StdCtrls, WEBLib.StdCtrls, WEBLib.JSON, Types,
   Vcl.Grids, WEBLib.Grids, WEBLib.WebCtrls,  WEBLib.WebTools ;
 
-
  type
-  // --- HIER DIE CRACKER KLASSE HINZUFÜGEN ---
-  //TWebPanelCracker = class(TWebPanel);
 
   TForm1 = class(TWebForm)
     divAnwenderWrapper: TWebHTMLDiv;
     divStartseite: TWebHTMLDiv;
     btnZurAnwend: TWebButton;
-    divAnwenderSizer: TWebHTMLDiv;
     divAnwenderCard: TWebHTMLDiv;
-    btnZurStartseite: TWebButton;
     WebLabel1: TWebLabel;
+    btnZurStartseite: TWebButton;
 
     procedure WebFormCreate(Sender: TObject);
     procedure btnZurStartseiteClick(Sender: TObject);
@@ -38,7 +34,6 @@ var
 implementation
 
 {$R *.dfm}
-
 
 procedure TForm1.btnZurAnwendClick(Sender: TObject);
 begin
@@ -62,26 +57,16 @@ procedure TForm1.WebFormCreate(Sender: TObject);
 begin
   inherited;
 
-   // ===== FINALE, KORREKTE ZUWEISUNG =====
-
+  // ===== VEREINFACHTE STRUKTUR =====
   divStartseite.ElementClassName      := 'fullscreen-container start-seite';
   divAnwenderWrapper.ElementClassName := 'fullscreen-container wrapper';
 
-  // =========================================================================
-  // HIER IST DER ENTSCHEIDENDE FIX:
-  // AUCH DER SIZER MUSS DIE STÖRENDEN DESIGNER-STYLES LOSWERDEN!
-  // Ohne 'fullscreen-container' wird 'position: absolute' vom Designer gesetzt.
-  // =========================================================================
-  divAnwenderSizer.ElementClassName   := 'fullscreen-container sizer';
-
-  // Die Card ist das einzige Element, das wirklich 'position: absolute' haben soll,
-  // daher bekommt sie den Reset nicht.
+  // Sizer wurde entfernt - Card wird direkt im Wrapper platziert
   divAnwenderCard.ElementClassName    := 'card';
 
-
-  // ===== Navigation bleibt unverändert =====
+  // ===== Navigation =====
   divStartseite.ElementHandle.classList.remove('hidden');
-  divAnwenderWrapper.ElementHandle.classList.add('hidden');
+  divAnwenderWrapper.ElementHandle.classList.add('hidden')
 
 end;
 

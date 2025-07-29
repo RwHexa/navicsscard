@@ -1,9 +1,14 @@
 
 html, body {
-  margin: 0; padding: 0; width: 100%; height: 100%; font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: sans-serif;
 }
 
-/* Der ultimative Reset, um den Designer zu kontrollieren */
+
+/* Reset fuer Vollbild-Container */
 .fullscreen-container {
   position: absolute !important;
   top: 0 !important;
@@ -14,52 +19,49 @@ html, body {
 
 /*
  ========================================================================
- HIER PASSIERT DIE ZENTRIERUNG:
- Der Wrapper wird zu einem Flexbox-Container, der seinen Inhalt (den Sizer)
- in die Mitte zwingt.
+ VEREINFACHTE STRUKTUR: Wrapper zentriert die Card direkt
  ========================================================================
 */
 .wrapper {
   overflow: auto;
   display: flex;
-  justify-content: center; /* Zentriert den Sizer horizontal */
-  align-items: center;     /* Zentriert den Sizer vertikal */
-   /* NEU: Ein großzügiger Innenabstand als Pufferzone */
-  padding: 50px;
+  justify-content: center;
+  align-items: center;
 
-  /* WICHTIG: Stellt sicher, dass das Padding die 100% Größe nicht sprengt */
+  /* Erweiterte Pufferzone: 90px fuer besseres horizontales Scrollen */
+  padding: 90px;
   box-sizing: border-box;
+
+  /* Mindestbreite horizontales Scrollen mit Puffer */
+  min-width: calc(550px + 180px);
 }
 
 /*
-  Sizer:
-  - Dient als Puffer und Anker für die Karte.
-  - Braucht KEINE eigene Zentrierung mehr.
+ ========================================================================
+ CARD: Direkt im Wrapper zentriert, kein absolutes Positioning noetig
+ ========================================================================
 */
-.sizer {
-  width: 620px;
-  height: 740px;
-  position: absolute;
-  flex-shrink: 0; /* Wichtig: Verhindert, dass der Sizer schrumpft */
-}
-
-/* Die .card-Klasse bleibt unverändert */
 .card {
   width: 550px !important;
   height: 670px !important;
-  position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  background-color: #ffffff !important;
-  border-radius: 12px !important;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.85) !important;
-  padding: 20px !important;
-  overflow: visible !important;
-  border: 5px solid #ee4565 !important;
+  position: relative !important;
+
+  /* DFM-Werte ueberschreiben */
+  left: auto !important;
+  top: auto !important;
+
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.85);
+  padding: 20px;
+  border: 5px solid #ee4565;
+  box-sizing: border-box;
+
+  /* Verhindert Schrumpfung bei kleinen Screens */
+  flex-shrink: 0;
 }
 
-/* Die .start-seite-Klasse bleibt unverändert */
+/* Startseite */
 .start-seite {
   display: flex;
   justify-content: center;
@@ -69,8 +71,32 @@ html, body {
   box-sizing: border-box;
 }
 
-/* Die .hidden-Klasse bleibt unverändert */
+/* Verstecken-Klasse */
 .hidden {
   display: none !important;
+}
+
+/*
+ ========================================================================
+ RESPONSIVE DESIGN
+ ========================================================================
+*/
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 60px 50px;
+    min-width: calc(550px + 100px);
+  }
+}
+
+@media (max-width: 650px) {
+  .wrapper {
+    padding: 40px;
+    min-width: calc(320px + 80px);
+  }
+
+  .card {
+    width: min(550px, calc(100vw - 80px));
+    min-width: 320px;
+  }
 }
 

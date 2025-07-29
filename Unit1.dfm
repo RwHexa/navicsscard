@@ -10,59 +10,51 @@ object Form1: TForm1
   ParentFont = False
   OnCreate = WebFormCreate
   object divAnwenderWrapper: TWebHTMLDiv
-    Left = 8
+    Left = 24
     Top = 56
-    Width = 657
+    Width = 641
     Height = 737
     Role = ''
-    object divAnwenderSizer: TWebHTMLDiv
-      Left = 24
-      Top = 24
-      Width = 617
-      Height = 689
-      ChildOrder = 2
+    object divAnwenderCard: TWebHTMLDiv
+      Left = 48
+      Top = 64
+      Width = 585
+      Height = 649
+      ChildOrder = 1
       Role = ''
-      object divAnwenderCard: TWebHTMLDiv
-        Left = 16
-        Top = 24
-        Width = 585
-        Height = 649
+      object WebLabel1: TWebLabel
+        Left = 224
+        Top = 288
+        Width = 125
+        Height = 32
+        Caption = 'KiRwClaude'
+        Color = clYellow
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clDarkblue
+        Font.Height = -24
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        HeightPercent = 100.000000000000000000
+        ParentFont = False
+        Transparent = False
+        WidthPercent = 100.000000000000000000
+      end
+      object btnZurStartseite: TWebButton
+        Left = 72
+        Top = 39
+        Width = 97
+        Height = 33
+        Caption = 'Home'
         ChildOrder = 1
-        Role = ''
-        object WebLabel1: TWebLabel
-          Left = 232
-          Top = 304
-          Width = 122
-          Height = 32
-          Caption = 'Vers.: 07/26'
-          Color = clYellow
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clDarkblue
-          Font.Height = -24
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          HeightPercent = 100.000000000000000000
-          ParentFont = False
-          Transparent = False
-          WidthPercent = 100.000000000000000000
-        end
-        object btnZurStartseite: TWebButton
-          Left = 32
-          Top = 48
-          Width = 97
-          Height = 33
-          Caption = 'Home'
-          ChildOrder = 1
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clDarkblue
-          Font.Height = -19
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          HeightPercent = 100.000000000000000000
-          ParentFont = False
-          WidthPercent = 100.000000000000000000
-          OnClick = btnZurStartseiteClick
-        end
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clDarkblue
+        Font.Height = -19
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        HeightPercent = 100.000000000000000000
+        ParentFont = False
+        WidthPercent = 100.000000000000000000
+        OnClick = btnZurStartseiteClick
       end
     end
   end
